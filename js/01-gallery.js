@@ -18,7 +18,7 @@ const newImg = ({ preview, original, description }) => `<div class="gallery__ite
   ;
 
   
- 
+  
 const makeGallery = galleryItems.map(newImg).join("");
 
 gallery.insertAdjacentHTML("afterbegin", makeGallery);
@@ -42,6 +42,7 @@ function viewOriginalImage(src) {
 
   modalImage.src = src;
   instance.show();
+  window.addEventListener("keydown", onEscapePress);
 }
 
 function onEscapePress(e) {
@@ -52,4 +53,3 @@ function onEscapePress(e) {
 
 gallery.addEventListener("click", handleGalleryClick);
 modalImage.addEventListener("click", instance.close);
-window.addEventListener("keydown", onEscapePress);
